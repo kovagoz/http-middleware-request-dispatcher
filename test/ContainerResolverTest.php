@@ -2,6 +2,7 @@
 
 namespace Test;
 
+use Kovagoz\Http\Middleware\RequestDispatcher\ResolverException;
 use Kovagoz\Http\Middleware\RequestDispatcher\ContainerResolver;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
@@ -54,7 +55,7 @@ final class ContainerResolverTest extends TestCase
      */
     public function testInvalidHandlerType(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(ResolverException::class);
 
         // Container returns with string which is not a valid handler type
         $container = $this->getMockForAbstractClass(ContainerInterface::class);
@@ -69,7 +70,7 @@ final class ContainerResolverTest extends TestCase
      */
     public function testHandlerCannotBeResolvedByContainer(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(ResolverException::class);
 
         $notFoundException = new class extends \Exception implements NotFoundExceptionInterface {};
 

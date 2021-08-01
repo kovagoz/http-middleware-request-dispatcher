@@ -22,6 +22,9 @@ class RequestDispatcher implements MiddlewareInterface
         $this->resolver = $resolver;
     }
 
+    /**
+     * @throws \Kovagoz\Http\Middleware\RequestDispatcher\ResolverException
+     */
     public function process(Request $request, Handler $handler): Response
     {
         $requestHandler = $request->getAttribute(self::HANDLER_ATTRIBUTE);

@@ -4,6 +4,7 @@ namespace Kovagoz\Http\Middleware\RequestDispatcher;
 
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 /**
@@ -25,15 +26,15 @@ class ContainerResolver implements RequestHandlerResolver
         try {
             $handler = $this->container->get($handlerIdentifier);
         } catch (NotFoundExceptionInterface $exception) {
-            throw new \InvalidArgumentException('Cannot resolve route handler', 0, $exception);
+            throw new ResolverException('Request handler is not found in the container', 0, $exception);
         }
 
         if ($handler instanceof RequestHandlerInterface) {
             return $handler;
         }
 
-        throw new \InvalidArgumentException(
-            'Route handler is not instance of RequestHandlerInterface'
+        throw new ResolverException(
+            'Request handler is not instance of ' . ServerRequestInterface::class
         );
     }
 }
