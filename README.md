@@ -3,7 +3,7 @@
 The purpose of this middleware is to dispatch the request to the assigned
 handler, also known as the controller.
 
-![example workflow](https://github.com/kovagoz/http-middleware-request-dispatcher/actions/workflows/php.yml/badge.svg)
+![phpunit workflow](https://github.com/kovagoz/http-middleware-request-dispatcher/actions/workflows/php.yml/badge.svg)
 
 ## Requirements
 
