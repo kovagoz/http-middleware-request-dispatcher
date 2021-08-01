@@ -1,0 +1,26 @@
+{
+  "name": "kovagoz/http-middleware-request-dispatcher",
+  "description": "PSR-15 compatible request dispatcher",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zoltan Kovago",
+      "email": "kovago@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "psr/container": ">=1.1.0",
+    "psr/http-server-middleware": "^1.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.4.0",
+    "roave/security-advisories": "dev-latest"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kovagoz\\Http\\Middleware\\RequestDispatcher\\": "src/"
+    }
+  }
+}
